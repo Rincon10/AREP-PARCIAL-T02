@@ -13,7 +13,7 @@ public class IpPool {
     private static String aSinpath = "/asin";
     private static String aTanpath = "/atan";
     static {
-        int servers = 3;
+        int servers = 2;
         for (int i = 1; i <= servers; i++) {
             ipMap.put("http://localhost:3500"+i+"/api/v1"+aSinpath,10);
             ipMap.put("http://localhost:3500"+i+"/api/v1"+aTanpath,10);
