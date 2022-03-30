@@ -15,7 +15,7 @@ public class IpPool {
     static {
         int servers = 2;
         for (int i = 1; i <= servers; i++) {
-            ipMap.put("http://localhost:3500"+i+"/api/v1",10);
+            ipMap.put("http://ec2-user@ec2-54-159-196-129.compute-1.amazonaws.com:3500"+i+"/api/v1",10);
         }
     }
 }
