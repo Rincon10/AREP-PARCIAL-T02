@@ -1,5 +1,9 @@
 package edu.escuelaing.arep;
 
+import edu.escuelaing.arep.services.ICalculatorService;
+import edu.escuelaing.arep.services.IConvertorService;
+import edu.escuelaing.arep.services.impl.CalculatorService;
+import edu.escuelaing.arep.services.impl.Convertorservice;
 import org.eclipse.jetty.http.HttpStatus;
 
 import static spark.Spark.*;
@@ -8,20 +12,31 @@ import static spark.Spark.*;
  * Hello world!
  */
 public class App {
-    private static String path = "/asin";
+    private static String aSinpath = "/asin";
+    private static String aTanpath = "/atan";
     private static String helloPath = "/hello";
+    private static IConvertorService convertorService = new Convertorservice();
+    private static ICalculatorService calculatorService = new CalculatorService();
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
 
     /**
      * Method that set the instances of the controllers of our API
      */
     protected static void setControllers() {
-        get(path, (req, res) -> {
+        get(aSinpath, (req, res) -> {
             res.type("application/json");
-            return service.getAllMessages().toString();
+            double input = -1;
+
+            double output = calculatorService.aSin(input);
+            return convertorService.doubleToJSON(aSinpath, new double[]{input, output});
+
+        });
+        get(aTanpath, (req, res) -> {
+            res.type("application/json");
+            double input = -1;
+
+            double output = calculatorService.aTan(input);
+            return convertorService.doubleToJSON(aTanpath, new double[]{input, output});
 
         });
     }
@@ -86,6 +101,4 @@ public class App {
         }
         return 4567; //returns default port if heroku-port isn't se  (i.e. on localhost)
     }
-
-}
 }
