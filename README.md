@@ -50,3 +50,21 @@ Salida. El formato de la salida y la respuesta debe ser un JSON con el siguiente
 3. Descripción de como correrlo en EC2.
 
 4. Video de menos de un minuto del funcionamiento (lo puede tomar con el celular una vez funcione)
+
+
+## **Prerrequisitos**
+
+-   [Git](https://git-scm.com/downloads) - Sistema de control de versiones
+-   [Maven](https://maven.apache.org/download.cgi) - Gestor de dependencias
+-   [Java 8](https://www.java.com/download/ie_manual.jsp) - Entorno de desarrollo
+-   [Intellij Idea](https://www.jetbrains.com/es-es/idea/download/) (Opcional)
+-   [Docker](https://www.docker.com/get-started) -  Motor para contenedores
+
+
+## Video de funcionamiento del RoundRobin (Verlo desde el segundo 26)
+
+En este video se muestra de manera local como el algoritmo de balanceador de carga cumple su objetivo, distribuyendo las peticiones entre dos instancias de spark que corren a diferentes puertos, 30001 y 30002 respectivamente.
+
+Como se aprecia en el [video](https://pruebacorreoescuelaingeduco-my.sharepoint.com/:v:/r/personal/ivan_rincon-s_mail_escuelaing_edu_co/Documents/Recordings/Call%20with%20LAURA%20and%201%20other-20220330_172234-Meeting%20Recording.mp4?csf=1&web=1&e=3mIUSw), se ve que cada vez que se actualiza la petición al proxy el url que este usa va variando el puerto.
+
+## Video de funcionamiento en AWS con uso de dockers
