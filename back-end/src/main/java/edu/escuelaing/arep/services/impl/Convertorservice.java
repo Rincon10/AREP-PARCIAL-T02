@@ -24,7 +24,8 @@ public class Convertorservice implements IConvertorService {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("operation", operation);
         jsonObject.addProperty("input", values[0]);
-        jsonObject.addProperty("output", values[1]);
+        jsonObject.addProperty("output-radianes", values[1]);
+        jsonObject.addProperty("output-grados", Math.toDegrees(values[1]));
         return jsonObject;
     }
 }

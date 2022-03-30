@@ -1,0 +1,6 @@
+localhost:4567/api/v1/asin?value=0  //0
+localhost:4567/api/v1/asin?value=1 //90
+
+localhost:4567/api/v1/atan?value=0 //0
+localhost:4567/api/v1/atan?value=1 //45
+
