@@ -28,6 +28,8 @@ public class App {
             res.status(HttpStatus.OK_200);
 
             String path = roundRobin.getServer() + aSinpath + "?value=" + req.queryParams("value");
+            System.out.println("Petition sinA to " + path);
+            System.out.println("--------------------------------------------------------------");
             IHttpConnectionService connectionService = new HttpConnectionService(path);
             return connectionService.startConnection();
 
@@ -37,6 +39,8 @@ public class App {
             res.status(HttpStatus.OK_200);
 
             String path = roundRobin.getServer() + aTanpath + "?value=" + req.queryParams("value");
+            System.out.println("Petition tanA to " + path);
+            System.out.println("--------------------------------------------------------------");
             IHttpConnectionService connectionService = new HttpConnectionService(path);
             return connectionService.startConnection();
         });

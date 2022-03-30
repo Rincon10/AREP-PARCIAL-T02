@@ -25,9 +25,10 @@ public class RoundRobin implements ILoadBalancer {
         String target = null;
 
         synchronized (position) {
-            if (position > serverList.size()) position = 0;
+            if (position >= serverList.size()) position = 0;
 
             target = serverList.get(position);
+            System.out.println(position);
             position++;
         }
         return target;
