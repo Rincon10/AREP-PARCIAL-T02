@@ -10,11 +10,11 @@ import edu.escuelaing.arep.services.ICalculatorService;
 public class CalculatorService implements ICalculatorService {
     @Override
     public double aSin(double angle) {
-        return 0;
+        return Math.asin(angle);
     }
 
     @Override
     public double aTan(double angle) {
-        return 0;
+        return Math.atan(angle);
     }
 }

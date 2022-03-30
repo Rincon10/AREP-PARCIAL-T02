@@ -25,7 +25,7 @@ public class App {
     protected static void setControllers() {
         get(aSinpath, (req, res) -> {
             res.type("application/json");
-            double input = -1;
+            double input = new Double(req.queryParams("value"));
 
             double output = calculatorService.aSin(input);
             return convertorService.doubleToJSON(aSinpath, new double[]{input, output});
@@ -33,7 +33,7 @@ public class App {
         });
         get(aTanpath, (req, res) -> {
             res.type("application/json");
-            double input = -1;
+            double input = new Double(req.queryParams("value"));
 
             double output = calculatorService.aTan(input);
             return convertorService.doubleToJSON(aTanpath, new double[]{input, output});
