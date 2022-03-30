@@ -32,7 +32,7 @@ public class HttpConnectionService implements IHttpConnectionService {
     }
 
     @Override
-    public String startConnection(String jsonInputString) throws IOException {
+    public String startConnection() throws IOException {
         con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);

@@ -15,8 +15,7 @@ public class IpPool {
     static {
         int servers = 2;
         for (int i = 1; i <= servers; i++) {
-            ipMap.put("http://localhost:3500"+i+"/api/v1"+aSinpath,10);
-            ipMap.put("http://localhost:3500"+i+"/api/v1"+aTanpath,10);
+            ipMap.put("http://localhost:3500"+i+"/api/v1",10);
         }
     }
 }

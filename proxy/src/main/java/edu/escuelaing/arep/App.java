@@ -1,5 +1,9 @@
 package edu.escuelaing.arep;
 
+import edu.escuelaing.arep.services.IHttpConnectionService;
+import edu.escuelaing.arep.services.ILoadBalancer;
+import edu.escuelaing.arep.services.impl.HttpConnectionService;
+import edu.escuelaing.arep.services.impl.RoundRobin;
 import org.eclipse.jetty.http.HttpStatus;
 
 import static spark.Spark.*;
@@ -10,16 +14,31 @@ import static spark.Spark.*;
 public class App {
     private static String path = "/proxy";
     private static String helloPath = "/hello";
+    private static String aSinpath = "/asin";
+    private static String aTanpath = "/atan";
+    private static final ILoadBalancer roundRobin = new RoundRobin();
 
 
     /**
      * Method that set the instances of the controllers of our API
      */
     protected static void setControllers() {
-        get(path, (req, res) -> {
+        get(aSinpath, (req, res) -> {
             res.type("application/json");
-            return "";
+            res.status(HttpStatus.OK_200);
 
+            String path = roundRobin.getServer() + aSinpath + "?value=" + req.queryParams("value");
+            IHttpConnectionService connectionService = new HttpConnectionService(path);
+            return connectionService.startConnection();
+
+        });
+        get(aTanpath, (req, res) -> {
+            res.type("application/json");
+            res.status(HttpStatus.OK_200);
+
+            String path = roundRobin.getServer() + aTanpath + "?value=" + req.queryParams("value");
+            IHttpConnectionService connectionService = new HttpConnectionService(path);
+            return connectionService.startConnection();
         });
     }
 
@@ -61,7 +80,7 @@ public class App {
 
 
         //Our API is gonna be on the base path, /api/v1
-        path("/api/v1", () -> {
+        path(path, () -> {
             //Setting the  Controllers of our API
             setControllers();
 
