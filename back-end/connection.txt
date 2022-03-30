@@ -1,0 +1,3 @@
+chmod 400 CALCULADORLIVE1.pem
+
+ssh -i "CALCULADORLIVE1.pem" ec2-user@ec2-54-159-196-129.compute-1.amazonaws.com
